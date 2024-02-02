@@ -1,9 +1,0 @@
-project:
-  output-dir: _docs
-
-website:
-  title: "kedro-inspect"
-  site-url: "https://noklam.github.io/kedro-inspect"
-  description: "kedro inspecting tool"
-  repo-branch: main
-  repo-url: "https://github.com/noklam/kedro-inspect"

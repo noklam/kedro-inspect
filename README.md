@@ -11,12 +11,18 @@ documentation.
 pip install kedro_inspect
 ```
 
-## How to use
+## Why do you need this
+Have you ever pick up a big kedro project where you have no idea how things work?
+1. Are there unused parameters and datasets?
+2. Which pipeline is using this dataset?
+3. Where is this configuration coming from?
+4. Which dataset factory pattern is not used at all?
+5. Which pattern is this dataset using?
 
-Fill me in please! Don’t forget code examples:
+## How to use
+No integration need! You only nede to install and run it as a CLI, that's it.
+
 
 ``` python
-1+1
+kedro-inspect
 ```
-
-    2
