@@ -24,6 +24,8 @@ distribution = true
 [tool.pdm.dev-dependencies]
 dev = [
     "mkdocs>=1.5.3",
+    "pymdown-extensions>=10.7",
+    "mkdocs-material>=9.5.7",
 ]
 [project.scripts]
 kedro-inspect = "kedro_inspect.cli:main"

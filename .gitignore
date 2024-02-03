@@ -1,4 +1,6 @@
+*.ipynb
 _docs/
+*.json
 _proc/
 
 *.bak

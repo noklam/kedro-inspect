@@ -1,0 +1,62 @@
+site_name: kedro-inspect
+site_description: kedro-inspect, inspect your Kedro project to spot the unused configs.
+site_url: https://noklam.github.io/kedro-inspect/
+
+theme:
+  name: material
+  # custom_dir: docs/overrides
+  palette:
+    primary: black
+    accent: teal
+  # icon:
+  #   repo: fontawesome/brands/github-alt
+  logo: img/favicon.png
+  favicon: img/favicon.png
+
+repo_name: noklam/kedro-inspect
+repo_url: https://github.com/noklam/kedro-inspect
+edit_uri: ""
+
+nav:
+  - Introduction: index.md
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - admonition
+  - codehilite
+  - extra
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format ''
+  - pymdownx.tabbed:
+      alternate_style: true
+  - mdx_include:
+      base_path: docs
+  # Enable while writing docs to simplify highlighting
+  - pymdownx.highlight:
+      linenums: true
+
+extra:
+#   analytics:
+#     provider: google
+#     property: _
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/noklam/kedro-inspect
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/noklamchan
+
+
+# extra_css:
+#   - css/termynal.css
+#   - css/custom.css
+
+# extra_javascript:
+#   - https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js
+#   - js/termynal.js
+#   - js/custom.js

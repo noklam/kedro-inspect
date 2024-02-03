@@ -26,3 +26,8 @@ No integration need! You only nede to install and run it as a CLI, that's it.
 ``` python
 kedro-inspect
 ```
+
+# Stack
+Dependency: pdm
+Docs: mkdocs
+CLI: typer
