@@ -43,6 +43,10 @@ companies:
   type: pandas.CSVDataset
   filepath: data/01_raw/companies.csv
 
+unused_dataset:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/companies.csv
+
 reviews:
   type: pandas.CSVDataset
   filepath: data/01_raw/reviews.csv

@@ -15,3 +15,9 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
     docs/
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
+
+## Unused Parameters
+There are few types of parameters
+1. Directly used parameters
+2. Implicit used parameters, which the value is a dictionary
+3. Unused parameters, parameters that are defined but never used anywhere (You should remove it!)

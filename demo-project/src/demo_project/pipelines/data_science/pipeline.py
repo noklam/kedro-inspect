@@ -4,7 +4,7 @@ from .nodes import evaluate_model, split_data, train_model
 
 
 def dummy(kwargs):
-    print(**kwargs)
+    print(kwargs)
     return "dummy"
 
 

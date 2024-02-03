@@ -10,3 +10,8 @@ def main():
     project = KedroProject(project_path)
     unused_datasets = project.find_unused_datasets()
     typer.echo(unused_datasets)
+
+
+# Direct Usage
+# Implicit Usage (dictionary)
+#

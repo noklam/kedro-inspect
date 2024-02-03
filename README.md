@@ -31,3 +31,6 @@ kedro-inspect
 Dependency: pdm
 Docs: mkdocs
 CLI: typer
+
+Todo:
+- Config Tracibility - is it possible to trace where's the config coming from
