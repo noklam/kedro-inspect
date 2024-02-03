@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 
 # demo_project documentation build
@@ -20,8 +19,8 @@
 #
 import re
 
-from kedro.framework.cli.utils import find_stylesheets
 from demo_project import __version__ as release
+from kedro.framework.cli.utils import find_stylesheets
 
 # -- Project information -----------------------------------------------------
 

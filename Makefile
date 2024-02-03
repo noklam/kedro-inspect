@@ -6,3 +6,6 @@ preview:
 
 build-docs:
 	mkdocs build
+
+test:
+	cd demo-project & kedro-inspect
