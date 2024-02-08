@@ -1,15 +1,36 @@
 from kedro.framework.hooks import hook_impl
+from kedro.framework.cli.hooks import cli_hook_impl
 import logging
+from kedro.framework.startup import ProjectMetadata
+
 logger = logging.getLogger(__name__)
+print(__name__)
+
 
 class TraceHook:
+    def __init__(self):
+        self.used_datasets = {}
+
+    @cli_hook_impl
+    def before_command_run(
+        self, project_metadata: ProjectMetadata, command_args: list[str]
+    ):
+        print(project_metadata)
+        print("before_command_run")
+
     @hook_impl
     def after_catalog_created(self, catalog):
         logger.info("Reached after_catalog_created hook")
 
     @hook_impl
     def before_dataset_loaded(self, dataset_name):
-        logger.info("Reached before_dataset_loaded hook")
+        self.used_datasets[dataset_name] = "used"
+        # logger.info("Plugin INFO")
+        # logger.debug("Plugin DEBUG")
+        # logger.warn("Plugin WARN")
+
+    def after_pipeline_run(self):
+        print(self.used_datasets)
 
 
 trace_hook = TraceHook()

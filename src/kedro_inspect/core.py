@@ -4,8 +4,6 @@ from kedro.framework.project import pipelines
 from rich import print
 from kedro.framework.session import KedroSession
 from kedro.framework.startup import bootstrap_project
-from pathlib import Path
-
 
 
 class KedroProject:
@@ -22,6 +20,21 @@ class KedroProject:
 
         print(unused_datasets)
         return unused_datasets
+
+    def find_pipeline_used(self, dataset):
+        raise NotImplementedError
+
+    def find_config_source(self, config):
+        # Where is the config from? cli/file/global/resolver etc
+        raise NotImplementedError
+
+    def find_unused_pattern(self):
+        raise NotImplementedError
+
+    def find_used_pattern(self):
+        # Return list of dataset name/pipeline used maybe
+        raise NotImplementedError
+
 
 if __name__ == "__main__":
     project_path = "/Users/Nok_Lam_Chan/dev/kedro-inspect/demo-project"

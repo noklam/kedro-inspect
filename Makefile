@@ -9,3 +9,6 @@ build-docs:
 
 test:
 	cd demo-project & kedro-inspect
+
+lint:
+	pre-commit run -a --hook-stage manual

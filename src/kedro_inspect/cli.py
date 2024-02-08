@@ -1,6 +1,5 @@
 from pathlib import Path
 import typer
-from rich import print
 from kedro_inspect.core import KedroProject
 
 

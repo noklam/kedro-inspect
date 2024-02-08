@@ -33,3 +33,6 @@ kedro-inspect = "kedro_inspect.cli:main"
 
 [project.entry-points."kedro.hooks"]
 kedro-inspect = "kedro_inspect.hooks:trace_hook"
+
+[project.entry-points."kedro.cli_hooks"]
+kedro-inspect = "kedro_inspect.hooks:trace_hook"
