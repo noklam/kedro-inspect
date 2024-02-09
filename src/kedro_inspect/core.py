@@ -7,6 +7,9 @@ from kedro.framework.startup import bootstrap_project
 
 
 class KedroProject:
+    """
+    The object to preload all necessary components at the startup time.
+    """
     def __init__(self, project_path):
         bootstrap_project(project_path)
         self.session = KedroSession.create(project_path)
@@ -31,7 +34,7 @@ class KedroProject:
     def find_unused_pattern(self):
         raise NotImplementedError
 
-    def find_used_pattern(self):
+    def find_used_pattern(self, dataset):
         # Return list of dataset name/pipeline used maybe
         raise NotImplementedError
 
