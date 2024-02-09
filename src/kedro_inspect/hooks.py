@@ -20,7 +20,7 @@ class TraceHook:
 
     @hook_impl
     def after_catalog_created(self, catalog):
-        logger.info("Reached after_catalog_created hook")
+        logger.info("kedro-inspect** Reached after_catalog_created hook")
 
     @hook_impl
     def before_dataset_loaded(self, dataset_name):
@@ -30,6 +30,7 @@ class TraceHook:
         # logger.warn("Plugin WARN")
 
     def after_pipeline_run(self):
+        logger.info("kedro-inspect** after_pipeline_run")
         print(self.used_datasets)
 
 
