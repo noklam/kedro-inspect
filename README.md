@@ -18,6 +18,9 @@ Have you ever pick up a big kedro project where you have no idea how things work
 3. Where is this configuration coming from?
 4. Which dataset factory pattern is not used at all?
 5. Which pattern is this dataset using?
+6. Which node used this dataset as input/outputs?
+
+
 
 ## How to use
 No integration need! You only nede to install and run it as a CLI, that's it.
