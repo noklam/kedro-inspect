@@ -10,6 +10,7 @@ class KedroProject:
     """
     The object to preload all necessary components at the startup time.
     """
+
     def __init__(self, project_path):
         bootstrap_project(project_path)
         self.session = KedroSession.create(project_path)

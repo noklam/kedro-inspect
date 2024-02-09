@@ -1,5 +1,5 @@
 # in src/<package_name>/runner.py
-from kedro.io import AbstractDataset, DataCatalog, MemoryDataset
+from kedro.io import DataCatalog
 from kedro.pipeline import Pipeline
 from kedro.runner.runner import AbstractRunner
 from pluggy import PluginManager
@@ -11,17 +11,16 @@ class DryRunner(AbstractRunner):
     neccessary data exists.
     """
 
-    def create_default_dataset(self, ds_name: str) -> AbstractDataset:
-        """Factory method for creating the default data set for the runner.
-
-        Args:
-            ds_name: Name of the missing data set
-        Returns:
-            An instance of an implementation of AbstractDataset to be used
-            for all unregistered data sets.
-
-        """
-        return MemoryDataset()
+    def __init__(
+        self,
+        is_async,
+        extra_dataset_patterns=None,
+    ):
+        default_dataset_pattern = {"{default}": {"type": "MemoryDataset"}}
+        self._extra_dataset_patterns = extra_dataset_patterns or default_dataset_pattern
+        super().__init__(
+            is_async=is_async, extra_dataset_patterns=self._extra_dataset_patterns
+        )
 
     def _run(
         self,
@@ -44,6 +43,7 @@ class DryRunner(AbstractRunner):
             session_id: The id of the session.
 
         """
+        print("DEBUG**", catalog.list())
         nodes = pipeline.nodes
         self._logger.info(
             "Actual run would execute %d nodes:\n%s",
