@@ -23,6 +23,10 @@ def compile():
     print("Compile")
     project = create_project()
     config_loader = project.config_loader
+    print(config_loader)
+    print(project.settings.CONFIG_LOADER_ARGS)
+    for config_group in config_loader:
+        print(config_group)
     ...
 # Direct Usage
 # Implicit Usage (dictionary)

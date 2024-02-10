@@ -1,10 +1,9 @@
 from functools import reduce
 from operator import or_
-from kedro.framework.project import pipelines
+from kedro.framework.project import pipelines, settings
 from rich import print
 from kedro.framework.session import KedroSession
 from kedro.framework.startup import bootstrap_project
-
 
 class KedroProject:
     """
@@ -18,7 +17,8 @@ class KedroProject:
         self.catalog = self.context.catalog
         self.pipelines = pipelines
         self.config_loader = self.context.config_loader
-
+        self.settings = settings
+        
     def find_unused_datasets(self):
         used_datasets = reduce(or_, (p.datasets() for p in self.pipelines.values()))
         unused_datasets = set(self.catalog.list()) - used_datasets
