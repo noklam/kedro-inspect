@@ -17,6 +17,7 @@ class KedroProject:
         self.context = self.session.load_context()
         self.catalog = self.context.catalog
         self.pipelines = pipelines
+        self.config_loader = self.context.config_loader
 
     def find_unused_datasets(self):
         used_datasets = reduce(or_, (p.datasets() for p in self.pipelines.values()))
