@@ -28,7 +28,7 @@ dev = [
     "mkdocs-material>=9.5.7",
 ]
 [project.scripts]
-kedro-inspect = "kedro_inspect.cli:main"
+kedro-inspect = "kedro_inspect.cli:app"
 
 
 [project.entry-points."kedro.hooks"]
