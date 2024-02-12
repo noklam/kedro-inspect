@@ -5,6 +5,7 @@ from rich import print
 from kedro.framework.session import KedroSession
 from kedro.framework.startup import bootstrap_project
 
+
 class KedroProject:
     """
     The object to preload all necessary components at the startup time.
@@ -18,7 +19,7 @@ class KedroProject:
         self.pipelines = pipelines
         self.config_loader = self.context.config_loader
         self.settings = settings
-        
+
     def find_unused_datasets(self):
         used_datasets = reduce(or_, (p.datasets() for p in self.pipelines.values()))
         unused_datasets = set(self.catalog.list()) - used_datasets
