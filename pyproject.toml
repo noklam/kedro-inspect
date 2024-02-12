@@ -36,3 +36,22 @@ kedro-inspect = "kedro_inspect.hooks:trace_hook"
 
 [project.entry-points."kedro.cli_hooks"]
 kedro-inspect = "kedro_inspect.hooks:trace_hook"
+
+
+[tool.ruff]
+line-length = 88
+show-fixes = true
+select = [
+    "F",   # Pyflakes
+    "W",   # pycodestyle
+    "E",   # pycodestyle
+    "I",   # isort
+    "UP",  # pyupgrade
+    "PL",  # Pylint
+    "T201", # Print Statement
+    "S", # flake8-bandit
+]
+ignore = ["E501"]
+
+[tool.ruff.isort]
+known-first-party = ["kedro"]
