@@ -1,7 +1,9 @@
 from pathlib import Path
+
 import typer
-from kedro_inspect.core import KedroProject
 import yaml
+
+from kedro_inspect.core import KedroProject
 
 app = typer.Typer()
 # compile_app = typer.Typer()

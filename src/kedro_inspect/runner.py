@@ -1,10 +1,12 @@
 # in src/<package_name>/runner.py
+from typing import Any
+
+from pluggy import PluginManager
+
+from kedro.framework.hooks.manager import _NullPluginManager
 from kedro.io import DataCatalog, MemoryDataset
 from kedro.pipeline import Pipeline
 from kedro.runner.runner import AbstractRunner
-from pluggy import PluginManager
-from kedro.framework.hooks.manager import _NullPluginManager
-from typing import Any
 
 
 class DryRunner(AbstractRunner):

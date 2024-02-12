@@ -1,7 +1,9 @@
 from functools import reduce
 from operator import or_
-from kedro.framework.project import pipelines, settings
+
 from rich import print
+
+from kedro.framework.project import pipelines, settings
 from kedro.framework.session import KedroSession
 from kedro.framework.startup import bootstrap_project
 

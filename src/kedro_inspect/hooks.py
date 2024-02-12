@@ -1,6 +1,7 @@
-from kedro.framework.hooks import hook_impl
-from kedro.framework.cli.hooks import cli_hook_impl
 import logging
+
+from kedro.framework.cli.hooks import cli_hook_impl
+from kedro.framework.hooks import hook_impl
 from kedro.framework.startup import ProjectMetadata
 
 logger = logging.getLogger(__name__)
