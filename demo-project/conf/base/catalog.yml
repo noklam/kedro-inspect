@@ -39,17 +39,14 @@
 # (transcoding), templating and a way to reuse arguments that are frequently repeated. See more here:
 # https://docs.kedro.org/en/stable/data/data_catalog.html
 
-companies:
+# companies and reviews
+"{dataset}_csv":
   type: pandas.CSVDataset
-  filepath: data/01_raw/companies.csv
+  filepath: data/01_raw/{dataset}.csv
 
 unused_dataset:
   type: pandas.CSVDataset
   filepath: data/01_raw/companies.csv
-
-reviews:
-  type: pandas.CSVDataset
-  filepath: data/01_raw/reviews.csv
 
 shuttles:
   type: pandas.ExcelDataset
@@ -57,13 +54,10 @@ shuttles:
   load_args:
     engine: openpyxl
 
-preprocessed_companies:
+# preprocessed companies and shuttles
+"preprocessed_{dataset}":
   type: pandas.ParquetDataset
-  filepath: data/02_intermediate/preprocessed_companies.pq
-
-preprocessed_shuttles:
-  type: pandas.ParquetDataset
-  filepath: data/02_intermediate/preprocessed_shuttles.pq
+  filepath: data/02_intermediate/preprocessed_{dataset}.pq
 
 model_input_table:
   type: pandas.ParquetDataset
@@ -73,3 +67,7 @@ regressor:
   type: pickle.PickleDataset
   filepath: data/06_models/regressor.pickle
   versioned: true
+
+"random_{unused}_pattern":
+  type: pandas.CSVDataset
+  filepath: data/01_raw/random_{unused}_pattern.csv 

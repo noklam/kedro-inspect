@@ -8,7 +8,7 @@ def create_pipeline(**kwargs) -> Pipeline:
         [
             node(
                 func=preprocess_companies,
-                inputs="companies",
+                inputs="companies_csv",
                 outputs="preprocessed_companies",
                 name="preprocess_companies_node",
             ),
@@ -20,7 +20,7 @@ def create_pipeline(**kwargs) -> Pipeline:
             ),
             node(
                 func=create_model_input_table,
-                inputs=["preprocessed_shuttles", "preprocessed_companies", "reviews"],
+                inputs=["preprocessed_shuttles", "preprocessed_companies", "reviews_csv"],
                 outputs="model_input_table",
                 name="create_model_input_table_node",
             ),
