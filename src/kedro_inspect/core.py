@@ -36,12 +36,32 @@ class KedroProject:
         # Where is the config from? cli/file/global/resolver etc
         raise NotImplementedError
 
-    def find_unused_pattern(self):
-        raise NotImplementedError
+    def find_unused_patterns(self, pipeline_name="__default__"):
+        pipeline = self.pipelines[pipeline_name]
+        patterns = self.catalog._dataset_patterns
+        explicit_datasets = set(self.catalog.list())
+        pipeline_datasets = pipeline.datasets()
+        pattern_datasets = [dataset for dataset in pipeline_datasets if dataset not in explicit_datasets and not dataset.startswith("params:")]
+        used_patterns = set()
+        for dataset in pattern_datasets:
+            matched_pattern = self.catalog._match_pattern(patterns, dataset)
+            if matched_pattern:
+                used_patterns.add(matched_pattern)
+        unused_patterns = set(patterns.keys()) - used_patterns
+        return unused_patterns
+        
 
     def find_used_pattern(self, dataset):
-        # Return list of dataset name/pipeline used maybe
-        raise NotImplementedError
+        patterns = self.catalog._dataset_patterns
+        # if dataset is explicit just return the name
+        if dataset in self.catalog.list():
+            return dataset
+        matched_pattern = self.catalog._match_pattern(patterns, dataset)
+        # if dataset matches pattern return the pattern 
+        # can also check if the dataset name being checked is actually in pipeline.datasets()
+        if matched_pattern:
+                return matched_pattern
+        return None
 
 
 if __name__ == "__main__":
