@@ -5,7 +5,7 @@ import yaml
 
 from kedro_inspect.core import KedroProject
 
-app = typer.Typer()
+app = typer.Typer(no_args_is_help=True)
 # compile_app = typer.Typer()
 # app.add_typer(compile_app, name="compile", help="Compile configurations.")
 
@@ -26,11 +26,9 @@ def datasets():
 
 @app.command()
 def compile():
-    print("Compile")
     project = create_project()
     config_loader = project.config_loader
     keys = config_loader.config_patterns.keys()
-    print("KEY", keys)
     compiled_config = {}
 
     def write_yaml(config: dict, key):
@@ -46,6 +44,22 @@ def compile():
         compiled = config_loader[config_key]
         compiled_config[config_key] = compiled
         write_yaml(compiled, config_key)
+        # DryRunner
+
+
+    # For `catalog` only
+    for ds_name, ds_config in catalog.items():
+        ds_config = _resolve_credentials(  # noqa: PLW2901
+            ds_config, credentials
+        )
+        if cls._is_pattern(ds_name):
+            # Add each factory to the dataset_patterns dict.
+            dataset_patterns[ds_name] = ds_config
+
+        else:
+            datasets[ds_name] = AbstractDataset.from_config(
+                ds_name, ds_config, load_versions.get(ds_name), save_version
+            )
 
     # it is not iterable
     #     print(config_group)

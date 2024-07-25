@@ -49,7 +49,7 @@ class KedroProject:
                 used_patterns.add(matched_pattern)
         unused_patterns = set(patterns.keys()) - used_patterns
         return unused_patterns
-        
+
 
     def find_used_pattern(self, dataset):
         patterns = self.catalog._dataset_patterns
@@ -57,7 +57,7 @@ class KedroProject:
         if dataset in self.catalog.list():
             return dataset
         matched_pattern = self.catalog._match_pattern(patterns, dataset)
-        # if dataset matches pattern return the pattern 
+        # if dataset matches pattern return the pattern
         # can also check if the dataset name being checked is actually in pipeline.datasets()
         if matched_pattern:
                 return matched_pattern
