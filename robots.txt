@@ -1,1 +1,0 @@
-Sitemap: https://noklam.github.io/kedro-inspect/sitemap.xml
