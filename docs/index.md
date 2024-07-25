@@ -17,7 +17,7 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
         ...       # Other markdown pages, images and other files. -->
 
 # Welcome to kedro-inspect!
-This is a lightweight toolkit that provides a CLI and Python API to inspect your Kedro Project
+This is a lightweight toolkit that provides a CLI and Python API to inspect your Kedro Project  
 
 ## Why do you need this
 Have you ever pick up a big kedro project where you have no idea how things work?
@@ -34,5 +34,19 @@ There are few types of parameters
 2. Implicit used parameters, which the value is a dictionary
 3. Unused parameters, parameters that are defined but never used anywhere (You should remove it!)
 
-## How to Use
-`kedro-inspect compile` will compile all configurations to a separate `compile` folder.
+## How to use
+
+``` python
+kedro-inspect
+```
+
+To see what commands are available, run:
+```
+kedro-inspect
+```
+
+Run this command to compile configurations to files:
+```
+kedro-inspect compile
+```
+This will compile all configurations to a separate `compile` folder.
