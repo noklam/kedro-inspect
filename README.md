@@ -9,10 +9,6 @@ pip install kedro-inspect
 
 ## How to use
 
-``` python
-kedro-inspect
-```
-
 To see what commands are available, run:
 ```
 kedro-inspect
