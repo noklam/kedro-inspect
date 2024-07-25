@@ -18,6 +18,11 @@ To see what commands are available, run:
 kedro-inspect
 ```
 
+Run this command to compile configurations to files:
+```
+kedro-inspect compile
+```
+This will compile all configurations to a separate `compile` folder.
 
 
 ## Todo

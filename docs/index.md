@@ -33,3 +33,6 @@ There are few types of parameters
 1. Directly used parameters
 2. Implicit used parameters, which the value is a dictionary
 3. Unused parameters, parameters that are defined but never used anywhere (You should remove it!)
+
+## How to Use
+`kedro-inspect compile` will compile all configurations to a separate `compile` folder.
